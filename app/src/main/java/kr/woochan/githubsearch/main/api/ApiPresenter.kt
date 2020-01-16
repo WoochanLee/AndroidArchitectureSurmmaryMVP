@@ -1,15 +1,15 @@
 package kr.woochan.githubsearch.main.api
 
 import io.reactivex.disposables.CompositeDisposable
-import kr.woochan.githubsearch.data.local.RealmRepository
-import kr.woochan.githubsearch.data.remote.GithubAPI
+import kr.woochan.githubsearch.data.local.UserRepository
+import kr.woochan.githubsearch.data.remote.GithubApi
 
-class ApiPresenter(override var view: ApiContract.View) : ApiContract.Presenter {
-
+class ApiPresenter(private val githubApi: GithubApi, private val userRepository: UserRepository) : ApiContract.Presenter {
+    override lateinit var view: ApiContract.View
     override var compositeDisposable = CompositeDisposable()
 
     override fun requestGithubUsers(name: String) {
-        val disposable = GithubAPI.requestGithubUsers(name, {
+        val disposable = githubApi.requestGithubUsers(name, {
             view.refreshGithubUsers(it.items.sortedBy { item ->
                 item.login
             })
@@ -20,7 +20,7 @@ class ApiPresenter(override var view: ApiContract.View) : ApiContract.Presenter 
     }
 
     override fun subscribeRealmRepository() {
-        val disposable = RealmRepository.subscribeDataChanged {
+        val disposable = userRepository.subscribeDataChanged {
             view.notifyDataChanged()
         }
         compositeDisposable.add(disposable)

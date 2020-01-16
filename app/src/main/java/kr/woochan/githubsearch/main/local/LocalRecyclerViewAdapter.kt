@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_user.*
 import kr.woochan.githubsearch.R
 import kr.woochan.githubsearch.common.helper.ViewHolderHelper
-import kr.woochan.githubsearch.data.local.RealmRepository
+import kr.woochan.githubsearch.data.local.UserRepositoryImpl
 import kr.woochan.githubsearch.data.local.dao.User
 
 class LocalRecyclerViewAdapter : RecyclerView.Adapter<ViewHolderHelper>() {
@@ -46,7 +46,7 @@ class LocalRecyclerViewAdapter : RecyclerView.Adapter<ViewHolderHelper>() {
         }
 
         holder.ll_item.setOnClickListener {
-            RealmRepository.removeUser(data[position].name)
+            UserRepositoryImpl.deleteUser(data[position].name)
         }
     }
 

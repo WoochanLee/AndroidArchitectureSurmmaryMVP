@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_main.*
 import kr.woochan.githubsearch.common.base.BaseFragment
 import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
+import org.koin.android.ext.android.inject
 
 
 class ApiFragment : BaseFragment<ApiContract.View, ApiContract.Presenter>(), ApiContract.View {
 
     override val layoutId = kr.woochan.githubsearch.R.layout.fragment_main
     override val contractView = this
-    override val presenter = ApiPresenter(this)
+    override val presenter by inject<ApiContract.Presenter>()
 
     private lateinit var apiRecyclerViewAdapter: ApiRecyclerViewAdapter
 

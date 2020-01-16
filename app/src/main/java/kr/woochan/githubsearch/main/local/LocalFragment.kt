@@ -8,12 +8,13 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import kr.woochan.githubsearch.R
 import kr.woochan.githubsearch.common.base.BaseFragment
 import kr.woochan.githubsearch.data.local.dao.User
+import org.koin.android.ext.android.inject
 
 class LocalFragment : BaseFragment<LocalContract.View, LocalContract.Presenter>(), LocalContract.View {
 
     override val layoutId = R.layout.fragment_main
     override val contractView = this
-    override val presenter = LocalPresenter(this)
+    override val presenter by inject<LocalContract.Presenter>()
 
     private lateinit var localRecyclerViewAdapter: LocalRecyclerViewAdapter
 

@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_user.*
 import kr.woochan.githubsearch.R
 import kr.woochan.githubsearch.common.helper.ViewHolderHelper
-import kr.woochan.githubsearch.data.local.RealmRepository
+import kr.woochan.githubsearch.data.local.UserRepositoryImpl
 import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
 
 class ApiRecyclerViewAdapter : RecyclerView.Adapter<ViewHolderHelper>() {
@@ -46,14 +46,14 @@ class ApiRecyclerViewAdapter : RecyclerView.Adapter<ViewHolderHelper>() {
         }
 
         holder.ll_item.setOnClickListener {
-            if (RealmRepository.hasUser(data[position].login)) {
-                RealmRepository.removeUser(data[position].login)
+            if (UserRepositoryImpl.hasUser(data[position].login)) {
+                UserRepositoryImpl.deleteUser(data[position].login)
             } else {
-                RealmRepository.insertUser(data[position])
+                UserRepositoryImpl.insertUser(data[position])
             }
         }
 
-        if (RealmRepository.hasUser(data[position].login)) {
+        if (UserRepositoryImpl.hasUser(data[position].login)) {
             holder.tv_star.text = "★"
         } else {
             holder.tv_star.text = "☆"

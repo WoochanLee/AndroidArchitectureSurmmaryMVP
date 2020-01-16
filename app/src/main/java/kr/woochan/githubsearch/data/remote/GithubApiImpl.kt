@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-object GithubAPI {
+object GithubApiImpl: GithubApi {
 
     private const val BASE_URL = "https://api.github.com/"
     private const val NETWORK_TIME_OUT = 10L
@@ -39,7 +39,7 @@ object GithubAPI {
             .create(GithubService::class.java)
     }
 
-    fun requestGithubUsers(
+    override fun requestGithubUsers(
         name: String,
         onResponse: (GithubUsersResponse) -> Unit,
         onError: (Throwable) -> Unit

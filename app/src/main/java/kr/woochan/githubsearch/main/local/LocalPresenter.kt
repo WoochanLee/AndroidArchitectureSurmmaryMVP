@@ -1,16 +1,17 @@
 package kr.woochan.githubsearch.main.local
 
 import io.reactivex.disposables.CompositeDisposable
-import kr.woochan.githubsearch.data.local.RealmRepository
+import kr.woochan.githubsearch.data.local.UserRepository
+import kr.woochan.githubsearch.data.local.UserRepositoryImpl
 
-class LocalPresenter(override var view: LocalContract.View) : LocalContract.Presenter {
-
+class LocalPresenter(private val userRepository: UserRepository) : LocalContract.Presenter {
+    override lateinit var view: LocalContract.View
     override var compositeDisposable = CompositeDisposable()
 
     var filterStr = ""
 
     override fun subscribeRealmRepository() {
-        val disposable = RealmRepository.subscribeDataChanged {
+        val disposable = userRepository.subscribeDataChanged {
             refreshData(filterStr)
         }
         compositeDisposable.add(disposable)
@@ -18,6 +19,6 @@ class LocalPresenter(override var view: LocalContract.View) : LocalContract.Pres
 
     override fun refreshData(str: String) {
         filterStr = str
-        view.refreshData(RealmRepository.selectUser(str).sortedBy { it.name })
+        view.refreshData(UserRepositoryImpl.selectUser(str).sortedBy { it.name })
     }
 }

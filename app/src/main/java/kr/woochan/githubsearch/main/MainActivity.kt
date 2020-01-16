@@ -7,11 +7,12 @@ import kr.woochan.githubsearch.R
 import kr.woochan.githubsearch.common.base.BaseActivity
 import kr.woochan.githubsearch.main.api.ApiFragment
 import kr.woochan.githubsearch.main.local.LocalFragment
+import org.koin.android.ext.android.inject
 
 class MainActivity : BaseActivity<MainContract.View, MainContract.Presenter>(), MainContract.View {
     override val layoutId = R.layout.activity_main
     override val contractView = this
-    override val presenter = MainPresenter(this)
+    override val presenter by inject<MainContract.Presenter>()
 
     lateinit var apiFragment: ApiFragment
     lateinit var localFragment: LocalFragment
