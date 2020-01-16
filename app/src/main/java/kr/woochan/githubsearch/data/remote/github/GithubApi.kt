@@ -1,7 +1,7 @@
-package kr.woochan.githubsearch.data.remote
+package kr.woochan.githubsearch.data.remote.github
 
 import io.reactivex.disposables.Disposable
-import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
+import kr.woochan.githubsearch.data.remote.github.dto.GithubUsersResponse
 
 interface GithubApi {
 

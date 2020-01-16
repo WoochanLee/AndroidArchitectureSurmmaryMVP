@@ -6,7 +6,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_main.*
 import kr.woochan.githubsearch.common.base.BaseFragment
-import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
+import kr.woochan.githubsearch.data.remote.github.dto.GithubUsersResponse
 import org.koin.android.ext.android.inject
 
 

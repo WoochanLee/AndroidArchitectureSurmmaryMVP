@@ -14,8 +14,8 @@ class MainActivity : BaseActivity<MainContract.View, MainContract.Presenter>(), 
     override val contractView = this
     override val presenter by inject<MainContract.Presenter>()
 
-    lateinit var apiFragment: ApiFragment
-    lateinit var localFragment: LocalFragment
+    private lateinit var apiFragment: ApiFragment
+    private lateinit var localFragment: LocalFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

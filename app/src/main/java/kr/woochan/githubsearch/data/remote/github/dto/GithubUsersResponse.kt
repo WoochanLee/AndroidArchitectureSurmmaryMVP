@@ -1,4 +1,4 @@
-package kr.woochan.githubsearch.data.remote.dto
+package kr.woochan.githubsearch.data.remote.github.dto
 
 data class GithubUsersResponse(
     val total_count: Int,

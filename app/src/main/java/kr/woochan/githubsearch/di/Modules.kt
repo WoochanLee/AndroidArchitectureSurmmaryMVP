@@ -2,8 +2,8 @@ package kr.woochan.githubsearch.di
 
 import kr.woochan.githubsearch.data.local.UserRepository
 import kr.woochan.githubsearch.data.local.UserRepositoryImpl
-import kr.woochan.githubsearch.data.remote.GithubApi
-import kr.woochan.githubsearch.data.remote.GithubApiImpl
+import kr.woochan.githubsearch.data.remote.github.GithubApi
+import kr.woochan.githubsearch.data.remote.github.GithubApiImpl
 import kr.woochan.githubsearch.main.MainContract
 import kr.woochan.githubsearch.main.MainPresenter
 import kr.woochan.githubsearch.main.api.ApiContract

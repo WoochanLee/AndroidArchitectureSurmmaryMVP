@@ -1,7 +1,7 @@
-package kr.woochan.githubsearch.data.remote
+package kr.woochan.githubsearch.data.remote.github
 
 import io.reactivex.Flowable
-import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
+import kr.woochan.githubsearch.data.remote.github.dto.GithubUsersResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,4 +11,5 @@ interface GithubService {
     fun requestGitHubUsers(
         @Query("q") name: String
     ): Flowable<GithubUsersResponse>
+
 }

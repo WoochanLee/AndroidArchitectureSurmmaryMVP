@@ -1,7 +1,7 @@
 package kr.woochan.githubsearch.main.api
 
 import kr.woochan.githubsearch.common.base.BaseFragmentContract
-import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
+import kr.woochan.githubsearch.data.remote.github.dto.GithubUsersResponse
 
 interface ApiContract {
     interface View : BaseFragmentContract.BaseView {

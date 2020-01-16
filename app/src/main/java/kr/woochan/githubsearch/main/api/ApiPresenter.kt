@@ -2,7 +2,7 @@ package kr.woochan.githubsearch.main.api
 
 import io.reactivex.disposables.CompositeDisposable
 import kr.woochan.githubsearch.data.local.UserRepository
-import kr.woochan.githubsearch.data.remote.GithubApi
+import kr.woochan.githubsearch.data.remote.github.GithubApi
 
 class ApiPresenter(private val githubApi: GithubApi, private val userRepository: UserRepository) : ApiContract.Presenter {
     override lateinit var view: ApiContract.View

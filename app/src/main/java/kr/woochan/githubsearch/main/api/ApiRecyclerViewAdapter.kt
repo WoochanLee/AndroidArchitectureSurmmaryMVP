@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.item_user.*
 import kr.woochan.githubsearch.R
 import kr.woochan.githubsearch.common.helper.ViewHolderHelper
 import kr.woochan.githubsearch.data.local.UserRepositoryImpl
-import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
+import kr.woochan.githubsearch.data.remote.github.dto.GithubUsersResponse
 
 class ApiRecyclerViewAdapter : RecyclerView.Adapter<ViewHolderHelper>() {
 

@@ -4,7 +4,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.PublishSubject
 import io.realm.Realm
 import kr.woochan.githubsearch.data.local.dao.User
-import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
+import kr.woochan.githubsearch.data.remote.github.dto.GithubUsersResponse
 
 object UserRepositoryImpl: UserRepository {
     private val realm = Realm.getDefaultInstance()

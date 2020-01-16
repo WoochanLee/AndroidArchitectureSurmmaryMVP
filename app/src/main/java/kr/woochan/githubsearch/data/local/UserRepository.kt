@@ -2,7 +2,7 @@ package kr.woochan.githubsearch.data.local
 
 import io.reactivex.disposables.Disposable
 import kr.woochan.githubsearch.data.local.dao.User
-import kr.woochan.githubsearch.data.remote.dto.GithubUsersResponse
+import kr.woochan.githubsearch.data.remote.github.dto.GithubUsersResponse
 
 interface UserRepository {
 
