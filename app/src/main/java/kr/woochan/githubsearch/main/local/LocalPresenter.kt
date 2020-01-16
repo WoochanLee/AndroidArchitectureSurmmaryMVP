@@ -8,7 +8,7 @@ class LocalPresenter(private val userRepository: UserRepository) : LocalContract
     override lateinit var view: LocalContract.View
     override var compositeDisposable = CompositeDisposable()
 
-    var filterStr = ""
+    private var filterStr = ""
 
     override fun subscribeRealmRepository() {
         val disposable = userRepository.subscribeDataChanged {

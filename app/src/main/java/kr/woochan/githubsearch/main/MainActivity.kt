@@ -14,21 +14,11 @@ class MainActivity : BaseActivity<MainContract.View, MainContract.Presenter>(), 
     override val contractView = this
     override val presenter by inject<MainContract.Presenter>()
 
-    private lateinit var apiFragment: ApiFragment
-    private lateinit var localFragment: LocalFragment
+    private val apiFragment: ApiFragment by inject()
+    private val localFragment: LocalFragment by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        if (savedInstanceState == null) {
-            apiFragment = ApiFragment()
-            localFragment = LocalFragment()
-            supportFragmentManager.beginTransaction().add(apiFragment, "apiFragment")
-            supportFragmentManager.beginTransaction().add(localFragment, "localFragment")
-        } else {
-            apiFragment = supportFragmentManager.findFragmentByTag("apiFragment") as ApiFragment
-            localFragment = supportFragmentManager.findFragmentByTag("localFragment") as LocalFragment
-        }
 
         vp_main.adapter = MainViewPagerAdapter(supportFragmentManager, listOf(apiFragment, localFragment))
         vp_main.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tl_main))
